@@ -1,0 +1,803 @@
+{
+	"info": {
+		"_postman_id": "3f8ebfdd-1957-42ab-aa36-554d8e2b6a7b",
+		"name": "Lead Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31747052"
+	},
+	"item": [
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Dashboard Stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/dashboard",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dashboard"
+							]
+						},
+						"description": "Get dashboard statistics including lead counts by status, source, and recent leads"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Leads by Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/reports/leads-by-status?date_from=2023-01-01&date_to=2023-12-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"leads-by-status"
+							],
+							"query": [
+								{
+									"key": "date_from",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "date_to",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leads by Source",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/reports/leads-by-source?date_from=2023-01-01&date_to=2023-12-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"leads-by-source"
+							],
+							"query": [
+								{
+									"key": "date_from",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "date_to",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leads by Country",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/reports/leads-by-country?type=residence&date_from=2023-01-01&date_to=2023-12-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"leads-by-country"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "residence",
+									"description": "Type of country: 'residence' or 'nationality'"
+								},
+								{
+									"key": "date_from",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "date_to",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activity Summary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/v1/reports/activity-summary?date_from=2023-01-01&date_to=2023-12-31&group_by=type",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"activity-summary"
+							],
+							"query": [
+								{
+									"key": "date_from",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "date_to",
+									"value": "2023-12-31"
+								},
+								{
+									"key": "group_by",
+									"value": "type",
+									"description": "Group by: 'type', 'day', 'week', 'month'"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leads",
+			"item": [
+				{
+					"name": "List Leads",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/leads",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leads"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "john",
+									"disabled": true
+								},
+								{
+									"key": "status_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "nationality_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "residence_country_id",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"disabled": true
+								},
+								{
+									"key": "created_by",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "date_from",
+									"value": "2023-01-01",
+									"disabled": true
+								},
+								{
+									"key": "date_to",
+									"value": "2023-12-31",
+									"disabled": true
+								},
+								{
+									"key": "tags[]",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags[]",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "sources[]",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sources[]",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "sort_field",
+									"value": "created_at",
+									"disabled": true
+								},
+								{
+									"key": "sort_direction",
+									"value": "desc",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "25",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Lead",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"personal_phone_country_id\": 1,\n    \"personal_phone\": \"1234567890\",\n    \"description\": \"Potential enterprise client\",\n    \"address\": \"123 Main St, New York, NY\",\n    \"business_phone_country_id\": 1,\n    \"business_phone\": \"9876543210\",\n    \"home_phone_country_id\": 1,\n    \"home_phone\": \"5556667777\",\n    \"nationality_id\": 1,\n    \"residence_country_id\": 1,\n    \"dob\": \"1985-06-15\",\n    \"gender\": \"male\",\n    \"status_id\": 1,\n    \"tags\": [1, 2, 3],\n    \"sources\": [1, 2]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/leads",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Lead",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/leads/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leads",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Lead",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"John\",\n    \"last_name\": \"Smith\",\n    \"email\": \"john.smith@example.com\",\n    \"personal_phone_country_id\": 1,\n    \"personal_phone\": \"1234567890\",\n    \"description\": \"Updated description\",\n    \"address\": \"456 Oak St, San Francisco, CA\",\n    \"business_phone_country_id\": 1,\n    \"business_phone\": \"9876543210\",\n    \"home_phone_country_id\": 1,\n    \"home_phone\": \"5556667777\",\n    \"nationality_id\": 2,\n    \"residence_country_id\": 3,\n    \"dob\": \"1985-06-15\",\n    \"gender\": \"male\",\n    \"status_id\": 2,\n    \"tags\": [1, 3, 5],\n    \"sources\": [2, 3]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/leads/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leads",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Lead",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/leads/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leads",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Leads",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/leads/export?status_id=1&nationality_id=2&residence_country_id=3&gender=male&created_by=1&date_from=2023-01-01&date_to=2023-12-31&tags[]=1&tags[]=2&sources[]=1&sources[]=2&format=csv",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leads",
+								"export"
+							],
+							"query": [
+								{
+									"key": "status_id",
+									"value": "1"
+								},
+								{
+									"key": "nationality_id",
+									"value": "2"
+								},
+								{
+									"key": "residence_country_id",
+									"value": "3"
+								},
+								{
+									"key": "gender",
+									"value": "male"
+								},
+								{
+									"key": "created_by",
+									"value": "1"
+								},
+								{
+									"key": "date_from",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "date_to",
+									"value": "2023-12-31"
+								},
+								{
+									"key": "tags[]",
+									"value": "1"
+								},
+								{
+									"key": "tags[]",
+									"value": "2"
+								},
+								{
+									"key": "sources[]",
+									"value": "1"
+								},
+								{
+									"key": "sources[]",
+									"value": "2"
+								},
+								{
+									"key": "format",
+									"value": "csv"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Leads",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/path/to/leads.csv"
+								},
+								{
+									"key": "status_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tags[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tags[]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "sources[]",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/leads/import",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leads",
+								"import"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@test.com\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check if the request was successful",
+							"if (pm.response.code === 200) {",
+							"    // Parse the response JSON",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"    // Check if token exists in the response",
+							"    if (jsonData.token) {",
+							"        // Set the token to your environment variable",
+							"        pm.environment.set(\"token\", jsonData.token);",
+							"    }",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test@test.com\",\n  \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Protected",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/test",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check if the request was successful",
+							"if (pm.response.code === 200) {",
+							"    // Remove the token from environment",
+							"    pm.environment.unset(\"token\");",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "token",
+			"value": "your_api_token_here"
+		}
+	]
+}
